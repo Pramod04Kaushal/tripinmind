@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register | Sri Lanka Travel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="popup_message.css">
+
+    <link rel="icon" type="image" href="images/icon.png">
+</head>
+
+<body class="login-body">
+    <!-- MESSAGES -->
+    <?php include "message.php"; ?>
+
+    <section class="login-section">
+        <div class="login-container">
+            <h2>Create Account</h2>
+            <p class="login-subtitle">
+                Register to get personalized travel recommendations
+            </p>
+
+            <!-- ERROR DISPLAY -->
+            <?php if (!empty($error)) { ?>
+            <div class="error-box">
+                <?php echo $error; ?>
+            </div>
+            <?php } ?>
+
+
+
+            <form method="POST" action="index.php?openRegister=1" class="login-form">
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="fullname" class="<?php echo !empty($error) ? 'input-error' : ''; ?>"
+                        value="<?php echo isset($fullname) ? $fullname : ''; ?>" placeholder="Enter your Full Name"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" class="<?php echo !empty($error) ? 'input-error' : ''; ?>"
+                        value="<?php echo isset($email) ? $email : ''; ?>" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" class="<?php echo !empty($error) ? 'input-error' : ''; ?>"
+                        placeholder="Create password" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" name="confirm_password" placeholder="Confirm password" required>
+                </div>
+
+                <button type="submit" class="login-submit">Register</button>
+
+                <p class="login-footer-text">
+                    Already have an account?
+                    <a href="login.php">Login</a>
+                </p>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+.season-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.season-grid label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: #f8fafc;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.season-grid label:hover {
+    background: #eef2f7;
+}
+
+.season-grid input:checked+span {
+    font-weight: 600;
+    color: #2563eb;
+}
+
+@media (max-width:900px) {
+
+    .season-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+.season-grid input:checked {
+    accent-color: #84cc16;
+}
+
+textarea[name="things_to_do"],
+textarea[name="nearby_places"],
+textarea[name="travel_tips"],
+textarea[name="why_visit"] {
+
+    min-height: 90px;
+}

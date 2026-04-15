@@ -1,0 +1,506 @@
+/* NAVBAR */
+.navbar {
+
+    width: 100%;
+
+    /*background: rgba(0, 0, 0, 0.35);*/
+    /* darker transparent */
+
+    background: transparent;
+
+    backdrop-filter: blur(6px);
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    z-index: 1000;
+
+}
+
+/*
+.home-navbar .navbar {
+
+    background: transparent;
+
+    box-shadow: none;
+
+}*/
+
+
+/* when scrolling */
+
+.navbar.scrolled {
+
+    /* background: linear-gradient(90deg, #5c8faa, #6eaac7);*/
+    background: linear-gradient(90deg, #4f8fb0, #6eaac7);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+
+
+
+}
+
+
+/* AI page navbar color */
+.ai-page .navbar {
+
+    background: linear-gradient(90deg, #4f8fb0, #6eaac7);
+
+}
+
+.profile-page .navbar {
+
+    background: linear-gradient(90deg, #4f8fb0, #6eaac7);
+
+}
+
+.category-locations-page .navbar {
+
+    background: linear-gradient(90deg, #4f8fb0, #6eaac7);
+
+}
+
+/* keep navbar blue on AI page */
+.ai-page .navbar {
+
+    background: linear-gradient(90deg, #4f8fb0, #6eaac7);
+
+}
+
+/* DO NOT override button structure */
+.ai-page .login-btn,
+.ai-page .register-btn {
+
+    color: white;
+
+}
+
+/* ensure underline works on AI page */
+.ai-page .login-btn::after,
+.ai-page .register-btn::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: -6px;
+    left: 0;
+
+    width: 0%;
+    height: 2px;
+
+    background: #ffe082;
+
+    transition: 0.25s;
+
+}
+
+.ai-page .login-btn:hover::after,
+.ai-page .register-btn:hover::after {
+
+    width: 100%;
+
+}
+
+.ai-page .theme-toggle {
+
+    background: transparent !important;
+
+    border: none;
+
+    box-shadow: none;
+
+    padding: 0;
+
+    color: white;
+
+    font-size: 18px;
+
+}
+
+.ai-page .theme-toggle {
+
+    margin-right: 10px;
+
+}
+
+
+
+/* container */
+.nav-container {
+
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+
+
+    height: 70px;
+
+}
+
+
+/* logo */
+/*
+.logo-text {
+
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+
+}
+
+.logo-mind {
+
+    color: #a3e635;
+    font-weight: 700;
+
+}*/
+/*
+.logo-text {
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+.logo-mind {
+    background: linear-gradient(90deg, #22c55e, #84cc16);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+*/
+
+.logo-text {
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+
+    /*depth effect for logo text */
+    text-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.25),
+        0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.logo-mind {
+    background: linear-gradient(90deg, #22c55e, #a3e635);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+
+    text-shadow: 0 4px 3px rgba(0, 0, 0, 0.15);
+}
+
+
+
+/* menu */
+.nav-menu {
+
+    list-style: none;
+    display: flex;
+    gap: 60px;
+
+}
+
+.nav-link {
+
+    text-decoration: none;
+    color: white;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    position: relative;
+
+    transition: 0.25s;
+
+}
+
+
+/* underline hover effect */
+.nav-link::after {
+
+    content: "";
+
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+
+    width: 0%;
+    height: 2px;
+
+    background: #ffe082;
+
+    transition: 0.25s;
+
+}
+
+.nav-link:hover {
+
+    color: #ffe082;
+
+}
+
+.nav-link:hover::after {
+
+    width: 100%;
+
+}
+
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+}
+
+
+/* login button */
+/* login button - plain text */
+.login-btn {
+
+    background: transparent;
+    border: none;
+
+    color: white;
+
+    font-size: 15px;
+
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+
+}
+
+
+
+
+/* signup text button */
+.register-btn {
+
+    background: transparent;
+    border: none;
+
+    color: white;
+
+    font-size: 15px;
+
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+
+}
+
+
+
+
+.theme-toggle,
+.login-btn,
+.register-btn {
+
+    display: flex;
+
+    align-items: center;
+
+    height: 100%;
+
+    padding: 0;
+
+    margin-top: -2px;
+
+}
+
+/* underline effect for auth buttons */
+.login-btn,
+.register-btn {
+
+    position: relative;
+    transition: 0.25s;
+}
+
+/* create line */
+.login-btn::after,
+.register-btn::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: -6px;
+    left: 0;
+
+    width: 0%;
+    height: 2px;
+
+    background: #ffe082;
+
+    transition: 0.25s;
+
+}
+
+/* hover animation */
+.login-btn:hover,
+.register-btn:hover {
+
+    color: #ffe082;
+
+}
+
+.login-btn:hover::after,
+.register-btn:hover::after {
+
+    width: 100%;
+
+}
+
+/* dark mode button */
+
+.theme-toggle {
+
+    background: transparent;
+    border: none;
+
+    color: white;
+
+    font-size: 18px;
+
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+
+}
+
+/* hover effect */
+.theme-toggle:hover {
+
+    color: #ffe082;
+
+}
+
+
+/* user avatar */
+.user-avatar {
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid rgba(255, 255, 255, 0.6);
+
+    background: #1e3a5f;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+}
+
+.user-avatar:hover {
+
+    transform: scale(1.05);
+
+}
+
+.user-avatar img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+/* letter avatar */
+
+.avatar-letter {
+
+    color: white;
+    font-weight: bold;
+
+    font-size: 16px;
+
+}
+
+
+/* dropdown */
+
+.dropdown-menu {
+
+    position: absolute;
+
+    top: 55px;
+    right: 0;
+
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 8px 0;
+
+    min-width: 170px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-10px);
+
+    transition: 0.25s;
+
+}
+
+
+/* when clicking profile */
+
+.dropdown-menu.show {
+
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+
+}
+
+
+/* dropdown links */
+
+.dropdown-menu a {
+
+    display: block;
+
+    padding: 11px 18px;
+
+    font-size: 14px;
+
+    color: #333;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+
+}
+
+.dropdown-menu a:hover {
+
+    background: #f1f5f9;
+
+}
+
+
+/* transparent navbar on homepage */
