@@ -6,7 +6,7 @@ include "config/db.php";
 $user_id = $_SESSION['user_id'];
 
 /* FIX undefined errors */
-$receive_email = $_POST['receive_email'] ?? "";
+$receive_email = isset($_POST['receive_email']) ? 1 : 0;
 $preferred_category = $_POST['preferred_category'] ?? "";
 $preferred_trip_type = $_POST['preferred_trip_type'] ?? "";
 
@@ -37,6 +37,13 @@ if (mysqli_num_rows($check) > 0) {
         VALUES
         ('$user_id','$receive_email','$preferred_category','$preferred_trip_type')"
     );
+}
+
+/* send email immediately if enabled */
+
+if ($receive_email == 1) {
+
+    include "send_monthly_emails_single.php";
 }
 
 header("Location: profile.php");

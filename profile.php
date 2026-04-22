@@ -128,7 +128,7 @@ $user = mysqli_fetch_assoc($result);
 
             <button id="tabCom" onclick="showComments()">Comments</button>
 
-            <button id="tabPref" onclick="showPreferences()">Preferences</button>
+            <button id="tabPref" onclick="showPreferences()">Settings</button>
 
         </div>
 
@@ -323,69 +323,32 @@ ORDER BY comment.created_at DESC
 
         <div id="preferences-section">
 
-            <h3>Travel Preferences</h3>
+            <form id="settingsForm" action="save_preferences.php" method="POST">
 
-            <form method="POST" action="save_preferences.php">
+                <h3>Settings</h3>
 
-                <label>Email Recommendations</label>
+                <label>
 
-                <select name="receive_email">
+                    <input type="checkbox"
 
-                    <option value="1">Yes - monthly suggestions</option>
+                        id="emailToggle"
 
-                    <option value="0">No</option>
+                        name="receive_email"
 
-                </select>
+                        value="1"
 
+                        <?php if ($preferences['receive_email'] == 1) echo "checked"; ?>>
 
-                <br><br>
+                    Enable Monthly Suggestions
 
+                </label>
 
-                <label>Preferred Category</label>
-
-                <select name="preferred_category">
-
-                    <option value="">Any</option>
-
-                    <option value="1">Leisure & Relaxation</option>
-
-                    <option value="2">Adventure</option>
-
-                    <option value="3">Cultural</option>
-
-                    <option value="4">Wildlife</option>
-
-                    <option value="5">Educational</option>
-
-                    <option value="6">Family</option>
-
-                </select>
+                <p>Get email about best places to visit this month</p>
 
 
-                <br><br>
 
 
-                <label>Trip Type</label>
 
-                <select name="preferred_trip_type">
-
-                    <option value="">Any</option>
-
-                    <option value="one_day">One day trip</option>
-
-                    <option value="long_trip">Long trip</option>
-
-                </select>
-
-
-                <br><br>
-
-
-                <button type="submit">
-
-                    Save Preferences
-
-                </button>
 
             </form>
 
@@ -543,7 +506,29 @@ ORDER BY comment.created_at DESC
     </script>
 
 
+    <script>
+        document.getElementById("emailToggle").addEventListener("change", function() {
 
+            if (this.checked) {
+
+                let confirmBox = confirm(
+                    "Enable Monthly Suggestions?\n\nWe will send you travel ideas for this month."
+                );
+
+                if (confirmBox) {
+
+                    document.getElementById("settingsForm").submit();
+
+                } else {
+
+                    this.checked = false;
+
+                }
+
+            }
+
+        });
+    </script>
 </body>
 
 </html>

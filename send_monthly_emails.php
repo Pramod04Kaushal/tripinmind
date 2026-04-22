@@ -88,26 +88,88 @@ LIMIT 5
     );
 
 
-    /* email message */
+    /* email message design */
 
-    $message = "Hello " . $name . ",<br><br>";
+    $message = "
 
-    $message .= "Best places to visit this month:<br><br>";
+<div style='font-family: Arial, sans-serif; background:#f5f7fa; padding:20px;'>
 
-    while ($place = mysqli_fetch_assoc($locations)) {
+<div style='max-width:600px; margin:auto; background:white; border-radius:10px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,0.05);'>
 
-        $message .= "• " . $place['location_name'] . "<br>";
+<div style='background:#2c3e50; color:white; padding:20px; text-align:center;'>
+
+<h2 style='margin:0;'>TripInMind</h2>
+
+<p style='margin:5px 0 0;'>Your Monthly Travel Inspiration</p>
+
+</div>
+
+<div style='padding:25px;'>
+
+<h3>Hello $name,</h3>
+
+<p>Here are the best places to visit this month based on your travel preferences.</p>
+
+<ul style='line-height:1.8; font-size:16px;'>";
+
+    if (mysqli_num_rows($locations) > 0) {
+
+        while ($place = mysqli_fetch_assoc($locations)) {
+
+            $message .= "<li>" . $place['location_name'] . "</li>";
+        }
+    } else {
+
+        $message .= "<li>Explore popular destinations on TripInMind</li>";
     }
 
-    $message .= "<br>Visit TripInMind to explore more.";
+    $message .= "
+
+</ul>
+
+<p style='margin-top:20px;'>
+
+Discover more destinations and plan your perfect trip with TripInMind.
+
+</p>
+
+<div style='text-align:center; margin-top:25px;'>
+
+<a href='http://localhost/tripinmind'
+
+style='background:#3498db;
+color:white;
+padding:12px 20px;
+text-decoration:none;
+border-radius:5px;
+font-weight:bold;'>
+
+Explore Destinations
+
+</a>
+
+</div>
+
+</div>
+
+<div style='background:#ecf0f1; padding:15px; text-align:center; font-size:12px; color:#7f8c8d;'>
+
+You are receiving this email because you enabled monthly travel suggestions.
+
+</div>
+
+</div>
+
+</div>
+
+";
 
 
     /* send email */
 
     $mail = new PHPMailer(true);
 
-    $mail->SMTPDebug = 2;
-    $mail->Debugoutput = 'html';
+    $mail->SMTPDebug = 0;
 
     try {
 

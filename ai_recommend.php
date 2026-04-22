@@ -8,7 +8,7 @@ include "config/db.php";
 
 <head>
 
-    <title>AI Travel Recommendation</title>
+    <title>Get Suggestions</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="ai_recommend.css">
@@ -24,9 +24,9 @@ include "config/db.php";
 
     <div class="section-content ai-page">
 
-        <h1>AI Travel Recommendation</h1>
+        <h1>Discover Your Ideal Trip</h1>
 
-        <p>Describe your ideal place</p>
+        <p>Describe the destination you're looking for ✨</p>
 
         <form method="POST">
 
